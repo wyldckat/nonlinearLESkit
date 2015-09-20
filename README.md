@@ -67,14 +67,14 @@ Using Git
      ```
      git checkout of211
      ```
-     
-   4. Build all of the libraries and utilities by running:
+    
+  4. Build all of the libraries and utilities by running:
 
-     ```
-     ./Allwmake
-     ```
+    ```
+    ./Allwmake
+    ```
 
-   5. The example case in `exampleCaseChannel395` can be executed by running `./Allrun`, but it will not work because the ngSgs field has not been updated to work as a `volSymmTensorField`.
+  5. The example case in `exampleCaseChannel395` can be executed by running `./Allrun`, but it will not work because the ngSgs field has not been updated to work as a `volSymmTensorField`.
 
 
 Using Zip
@@ -107,18 +107,18 @@ Using Zip
      wget https://github.com/wyldckat/nonlinearLESkit/archive/of211.zip
      ```
 
-   3. Unzip the respective file and go into the respective folder, for example:
+  3. Unzip the respective file and go into the respective folder, for example:
 
-     ```
-     unzip of23x.zip
-     cd nonlinearLESkit-of23x
-     ```
-     
-   4. Build all of the libraries and utilities by running:
+    ```
+    unzip of23x.zip
+    cd nonlinearLESkit-of23x
+    ```
+    
+  4. Build all of the libraries and utilities by running:
 
-     ```
-     ./Allwmake
-     ```
+    ```
+    ./Allwmake
+    ```
 
-   5. The example case in `exampleCaseChannel395` can be executed by running `./Allrun`, but it will not work because the ngSgs field has not been updated to work as a `volSymmTensorField`.
+  5. The example case in `exampleCaseChannel395` can be executed by running `./Allrun`, but it will not work because the ngSgs field has not been updated to work as a `volSymmTensorField`.
 
