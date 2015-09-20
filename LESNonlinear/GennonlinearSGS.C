@@ -87,17 +87,33 @@ tmp<volSymmTensorField> GennonlinearSGS::B() const
 }//no need to calculate, just in order to diminish the codes needed to be modified
 
 
-tmp<volSymmTensorField> GennonlinearSGS::devBeff() const
+tmp<volSymmTensorField> GennonlinearSGS::devReff() const
 {
    return -nuEff()*dev(twoSymm(fvc::grad(U())));
 }//no need to calculate, just in order to diminish the codes needed to be modified
 
 
-tmp<fvVectorMatrix> GennonlinearSGS::divDevBeff(volVectorField& U) const
+tmp<fvVectorMatrix> GennonlinearSGS::divDevReff(volVectorField& U) const
 {
     return
     (
       - fvm::laplacian(nu(), U) + fvc::div(nuSgs_)
+    );
+}
+
+
+tmp<fvVectorMatrix> GennonlinearSGS::divDevRhoReff
+(
+    const volScalarField& rho,
+    volVectorField& U
+) const
+{
+    volSymmTensorField muSgs("muSgs", rho*nuSgs_);
+
+    return
+    (
+      - fvm::laplacian(rho*nu(), U)
+      + fvc::div(muSgs)
     );
 }
 

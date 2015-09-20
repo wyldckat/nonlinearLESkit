@@ -104,7 +104,21 @@ public:
         //- Return sub-grid disipation rate
         virtual tmp<volScalarField> epsilon() const
         {
-          return ce_*k()*sqrt(k())/delta();
+            return tmp<volScalarField>
+            (
+                new volScalarField
+                (
+                    IOobject
+                    (   
+                        "epsilon",
+                        runTime_.timeName(),
+                        mesh_,
+                        IOobject::NO_READ,
+                        IOobject::NO_WRITE
+                    ),
+                    ce_*k()*sqrt(k())/delta()
+                )
+            );
         }
 
         //- Return the SGS viscosity.
@@ -118,11 +132,19 @@ public:
 
         //- Return the effective sub-grid turbulence stress tensor
         //  including the laminar stress
-        virtual tmp<volSymmTensorField> devBeff() const;
+        virtual tmp<volSymmTensorField> devReff() const;
 
         //- Return the deviatoric part of the effective sub-grid
         //  turbulence stress tensor including the laminar stress
-        virtual tmp<fvVectorMatrix> divDevBeff(volVectorField& U) const;
+        virtual tmp<fvVectorMatrix> divDevReff(volVectorField& U) const;
+
+        //- Return the deviatoric part of the effective sub-grid
+        //  turbulence stress tensor including the laminar stress
+        virtual tmp<fvVectorMatrix> divDevRhoReff
+        (
+            const volScalarField& rho,
+            volVectorField& U
+        ) const;
 
         //- Correct Eddy-Viscosity and related properties
         virtual void correct(const tmp<volTensorField>& gradU);
