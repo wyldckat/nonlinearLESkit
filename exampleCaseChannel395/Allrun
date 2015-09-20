@@ -8,11 +8,19 @@ cd ${0%/*} || exit 1    # run from this directory
 application=`getApplication`
 
 if [ ! -d "0" ]; then
-  cp -r $FOAM_TUTORIALS/incompressible/channelFoam/channel395/0 ./
+  cp -r $FOAM_TUTORIALS/incompressible/pimpleFoam/channel395/0 ./
 fi
 
 runApplication blockMesh
-runApplication $application
+
+#- Run serial
+#runApplication $application
+
+#- Run parallel
+runApplication decomposePar -cellDist
+runParallel $application 5
+runApplication reconstructPar
+
 runApplication postChannel
 
 # ----------------------------------------------------------------- end-of-file

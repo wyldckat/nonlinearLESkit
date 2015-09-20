@@ -11,50 +11,21 @@ FoamFile
     format      ascii;
     class       dictionary;
     location    "system";
-    object      fvSchemes;
+    object      fvOptions;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-ddtSchemes
+momentumSource
 {
-    default         backward;
-}
+    type            pressureGradientExplicitSource;
+    active          on;            //on/off switch
+    selectionMode   all;       //cellSet // points //cellZone
 
-gradSchemes
-{
-    default         Gauss linear;
-}
-
-divSchemes
-{
-    default         none;
-    div(phi,U)      Gauss linear;
-    div(phi,k)      Gauss limitedLinear 1;
-    div(phi,B)      Gauss limitedLinear 1;
-    div(B)          Gauss linear;
-    div(phi,nuTilda) Gauss limitedLinear 1;
-    div((nuEff*dev(T(grad(U))))) Gauss linear;
-}
-
-laplacianSchemes
-{
-    default         Gauss linear corrected;
-}
-
-interpolationSchemes
-{
-    default         linear;
-}
-
-snGradSchemes
-{
-    default         corrected;
-}
-
-fluxRequired
-{
-    default         no;
-    p               ;
+    pressureGradientExplicitSourceCoeffs
+    {
+        fieldNames  (U);
+        Ubar        ( 0.1335 0 0 );
+    }
 }
 
 

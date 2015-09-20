@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2.1.1                                 |
+|  \\    /   O peration     | Version:  2.3.0                                 |
 |   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -19,55 +19,45 @@ solvers
 {
     p
     {
-        solver          PCG;
-        preconditioner  DIC;
-        tolerance       1e-06;
-        relTol          0.05;
+        solver          GAMG;
+        tolerance       0;
+        relTol          0.1;
+        smoother        GaussSeidel;
+        nPreSweeps      0;
+        nPostSweeps     2;
+        cacheAgglomeration true;
+        nCellsInCoarsestLevel 10;
+        agglomerator    faceAreaPair;
+        mergeLevels     1;
     }
 
     pFinal
     {
-        solver          PCG;
-        preconditioner  DIC;
+        $p;
+        smoother        DICGaussSeidel;
         tolerance       1e-06;
         relTol          0;
     }
 
-    U
+    "(U|k)"
     {
-        solver          PBiCG;
-        preconditioner  DILU;
+        solver          smoothSolver;
+        smoother        symGaussSeidel;
         tolerance       1e-05;
-        relTol          0;
+        relTol          0.1;
     }
 
-    k
+    "(U|k)Final"
     {
-        solver          PBiCG;
-        preconditioner  DILU;
-        tolerance       1e-05;
-        relTol          0;
-    }
-
-    B
-    {
-        solver          PBiCG;
-        preconditioner  DILU;
-        tolerance       1e-05;
-        relTol          0;
-    }
-
-    nuTilda
-    {
-        solver          PBiCG;
-        preconditioner  DILU;
+        $U;
         tolerance       1e-05;
         relTol          0;
     }
 }
 
-PISO
+PIMPLE
 {
+    nOuterCorrectors 1;
     nCorrectors     2;
     nNonOrthogonalCorrectors 0;
     pRefCell        1001;
