@@ -1,0 +1,3 @@
+Smagorinsky.C
+
+LIB = $(FOAM_USER_LIBBIN)/libSmagorinsky

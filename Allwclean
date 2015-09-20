@@ -1,0 +1,6 @@
+#!/bin/sh
+
+wclean libso LESNonlinear
+wclean libso SM-non
+
+wclean channelFoamNL

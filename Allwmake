@@ -1,0 +1,6 @@
+#!/bin/sh
+
+wmake libso LESNonlinear
+wmake libso SM-non
+
+wmake channelFoamNL
