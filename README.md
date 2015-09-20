@@ -4,7 +4,7 @@ nonlinearLESkit - proof of concept
 **Disclaimer**: This repository is provided only as a proof of concept, devised for this thread: http://www.cfd-online.com/Forums/openfoam-programming-development/144714-problem-implementing-non-linear-sgs-model.html
 There is no warranty that this will work as intended. This only aims to prove how a new type of turbulence model, namely a non-linear LES model group, can be implemented to be used with OpenFOAM, without having to be integrated into OpenFOAM itself.
 
-The license for the source code provided in this repository and respective branches is the same as the one used in OpenFOAM, namely GPL v3, for which the file LICENSE provides more details.
+The license for the source code provided in this repository and respective branches is the same as the one used in OpenFOAM, namely GPL v3, for which the file `LICENSE` provides more details.
 
 Source code provided in this repository is based on source code from the following sources:
 
@@ -13,7 +13,7 @@ Source code provided in this repository is based on source code from the followi
  * https://github.com/OpenFOAM/OpenFOAM-2.1.x/
  * https://github.com/OpenFOAM/OpenFOAM-2.3.x/
 
-This means that most of the source code was provided by OpenCFD and/or the OpenFOAM Foundation, along with modifications by Huang Xianbei [huangxianbei](http://www.cfd-online.com/Forums/members/huangxianbei.html) and Bruno Santos [wyldckat](http://www.cfd-online.com/Forums/members/wyldckat.html).
+This means that most of the source code was provided by OpenCFD and/or the OpenFOAM Foundation, along with modifications by Huang Xianbei (forum member [huangxianbei](http://www.cfd-online.com/Forums/members/huangxianbei.html)) and Bruno Santos ([wyldckat](forum member http://www.cfd-online.com/Forums/members/wyldckat.html)).
 
 For more details and questions about the source code provided in this repository, please read/study the forum thread: http://www.cfd-online.com/Forums/openfoam-programming-development/144714-problem-implementing-non-linear-sgs-model.html
 
