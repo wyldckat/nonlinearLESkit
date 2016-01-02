@@ -13,7 +13,7 @@ Source code provided in this repository is based on source code from the followi
  * https://github.com/OpenFOAM/OpenFOAM-2.1.x/
  * https://github.com/OpenFOAM/OpenFOAM-2.3.x/
 
-This means that most of the source code was provided by OpenCFD and/or the OpenFOAM Foundation, along with modifications by Huang Xianbei (forum member [huangxianbei](http://www.cfd-online.com/Forums/members/huangxianbei.html)) and Bruno Santos ([wyldckat](forum member http://www.cfd-online.com/Forums/members/wyldckat.html)).
+This means that most of the source code was provided by OpenCFD and/or the OpenFOAM Foundation, along with modifications by Huang Xianbei (forum member [huangxianbei](http://www.cfd-online.com/Forums/members/huangxianbei.html)) and Bruno Santos ([wyldckat](forum member http://www.cfd-online.com/Forums/members/wyldckat.html), working at [blueCAPE Lda](www.bluecape.com.pt)).
 
 For more details and questions about the source code provided in this repository, please read/study the forum thread: http://www.cfd-online.com/Forums/openfoam-programming-development/144714-problem-implementing-non-linear-sgs-model.html
 
